@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  div
+  table(class='table')
+    thead
+      tr:   th ID
+            th Title
+            th Ventes
+            th Goal
+
+    tfoot
+      tr:   th
+            th
+            th #{sumVentes}
+            th #{sumGoal}
+
+    tbody
+      each veg, i in vegetables
+            tr
+                td= veg.id
+                td= veg.Name
+                if veg.Ventes>veg.Goal
+                    td(style='color:#33CC33')= veg.Ventes
+                else
+                    td(style='color:red')= veg.Ventes
+                td= veg.Goal
+
+
+    p(class='lead') Nombre de légumes :  #{nbrVegetables}
+    p(class='') Total des ventes :  #{sumVentes}
+    p(class='') Total Goal :  #{sumGoal}
+
