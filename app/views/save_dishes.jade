@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  h1= title
+
+  p(class='lead') Nbr of dishes :  #{nbrDishes}
+
+
+    table(class='table')
+      thead
+        tr:   th ID
+              th Name
+              th ChiefID
+              th Chief Identity
+
+      tfoot
+        tr:   th
+              th
+              th
+              th
+      tbody
+        each dish, i in dishes
+              tr
+                  td= dish.id
+                  td= dish.Name
+                  td= dish.ChiefId
+                  td "chief identity"
+
+
+  div(style='border:1px solid grey;width:200px;height:300px;padding:10px; ')
+    h4= "All the chiefs Array : "
+
+
+
+  <a class="btn btn-primary" href="/vegetables">Back to the vegetables list</a>
+

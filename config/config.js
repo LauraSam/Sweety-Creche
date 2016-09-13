@@ -9,7 +9,7 @@ var config = {
       name: 'server'
     },
     port: process.env.PORT || 3000,
-    db: 'postgres://christelle:adneom2016@localhost/PsaDummy'
+    db: 'postgres://Laura:adneom2016@localhost/SweetyCreche'
   },
 
   test: {
@@ -17,8 +17,8 @@ var config = {
     app: {
       name: 'server'
     },
-    port: process.env.PORT || 3000,
-    db: 'postgres://christelle:adneom2016@localhost/PsaDummy'
+    port: process.env.PORT || 3001,
+    db: 'postgres://Laura:adneom2016@localhost/SweetyCreche'
   },
 
   production: {
@@ -26,8 +26,8 @@ var config = {
     app: {
       name: 'server'
     },
-    port: process.env.PORT || 3000,
-    db: 'postgres://christelle:adneom2016@localhost/PsaDummy'
+    port: process.env.PORT || 3002,
+    db: 'postgres://Laura:adneom2016@localhost/SweetyCreche'
   }
 };
 

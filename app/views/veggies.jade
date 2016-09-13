@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  h1= title
+
+  p(class='lead') Nbr of dishes :  
+
+
+    table(class='table')
+      thead
+        tr:   th ID
+              th Name
+              th stuff
+              th stuff
+
+      tfoot
+        tr:   th
+              th
+              th
+              th
+      tbody
+        each veg, i in allVeggies
+              tr
+                  td= veg.Name
+                  td= veg.Dishes
+                  td 
+
+
+
+  <a class="btn btn-primary" href="/vegetables">Back to the vegetables list</a>

@@ -4,33 +4,42 @@ block content
   h1= title
   p Welcome to #{title}
 
-  div
-  table(class='table')
-    thead
-      tr:   th ID
-            th Title
-            th Ventes
-            th Goal
-
-    tfoot
-      tr:   th
-            th
-            th #{sumVentes}
-            th #{sumGoal}
-
-    tbody
-      each veg, i in vegetables
-            tr
-                td= veg.id
-                td= veg.Name
-                if veg.Ventes>veg.Goal
-                    td(style='color:#33CC33')= veg.Ventes
-                else
-                    td(style='color:red')= veg.Ventes
-                td= veg.Goal
+  p(class='lead') Nombre de légumes :  #{nbrVegetables}
+  p(class='') Total des ventes :  #{sumVentes}
+  p(class='') Total Goal :  #{sumGoal}
 
 
-    p(class='lead') Nombre de légumes :  #{nbrVegetables}
-    p(class='') Total des ventes :  #{sumVentes}
-    p(class='') Total Goal :  #{sumGoal}
+    table(class='table')
+      thead
+        tr:   th ID
+              th Title
+              th Ventes
+              th Goal
+
+      tfoot
+        tr:   th
+              th
+              th #{sumVentes}
+              th #{sumGoal}
+
+      tbody
+        each veg, i in vegetables
+              tr
+                  td= veg.id
+                  td= veg.Name
+                  if veg.Ventes>veg.Goal
+                      td(style='color:#33CC33')= veg.Ventes
+                  else
+                      td(style='color:red')= veg.Ventes
+                  td= veg.Goal
+
+
+  <a class="btn btn-primary" href="/chiefs">See the chiefs list</a>
+  <a class="btn btn-primary" href="/dishes">See the dishes list</a>
+
+br br
+
+    <a class="btn btn-primary" href="/convert">Convert vegetables.xls to csv</a>
+    <a class="btn btn-info" href="/updating">Updating Test</a>
+    <a class="btn" href="/init">Initialize !</a>
 

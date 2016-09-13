@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  h1= title
+
+  p(class='lead') Nbr of childs :  #{nbrChilds}
+
+
+    table(class='table')
+      thead
+        tr:   th ID
+              th Firstname
+              th Lastname
+
+      tfoot
+        tr:   th
+              th
+              th
+      tbody
+        each child, i in childs
+              tr
+                  td= child.id
+                  td= child.Firstname
+                  td= child.Lastname
+
+
+  <a class="btn btn-primary" href="/home">Back to the home list</a>
+
