@@ -1,18 +1,31 @@
 var express = require('express'),
     router = express.Router(),
     db = require('../models');
-   
+
 
 var models = db.sequelize.models;
 
 module.exports = function(app) {
     // app.use('/api', router) ==> tell express to include subpath api before any route
-  /*  app.use(bodyParser.urlencoded({
-        'extended': 'true'
-    }));
-    app.use(bodyParser.json());*/
+    /*  app.use(bodyParser.urlencoded({
+          'extended': 'true'
+      }));
+      app.use(bodyParser.json());*/
     app.use('/', router);
 };
+
+
+var convertToDateFromSimpleString = function(dateValue) { // simple string = yyyymmdd
+    var dateValueV = String(dateValue);
+    var yyyy = dateValueV.substr(0, 4);
+    var mm = dateValueV.substr(4, 2);
+    var dd = dateValueV.substr(6, 2);
+    var dateFormated = yyyy + '-' + mm + '-' + dd;
+    /*    console.log("dateFormated =====>", dateFormated);*/
+    return dateFormated;
+}
+
+
 //Inputs: Array Json
 
 var ChildsArr = [{
@@ -27,7 +40,7 @@ var ChildsArr = [{
 
 var AllergiesArr = [{
     Libelle: "Allergies aux produits laitiers",
-    Reaction: "Erruption cutanée rouges et démengeantes",
+    Reaction: "Erruptions cutanées rouges et démengeantes",
 }, {
     Libelle: "Allergies au pollen",
     Reaction: "Yeux bouffis"
@@ -41,23 +54,64 @@ var RemarksArr = [{
 }]
 
 var InfosDaysArr = [{
-    DepartTime: "08:05",
-    ArrivalTime: "16:30",
-    Date_Day: "18-06-2015"
-}, {
-    DepartTime: "08:15",
-    ArrivalTime: "18:30",
-    Date_Day: "18-06-2015"
+    ArrivalTime: "08:15",
+    DepartTime: "18:15",
+    Date_Day: "2015-08-15"
+},{
+    ArrivalTime: "07:35",
+    DepartTime: "18:15",
+    Date_Day: "2015-07-15"
+}, {ArrivalTime: "08:15",
+    DepartTime: "16:15",
+    Date_Day: "2015-08-19"
+},{
+    ArrivalTime: "07:35",
+    DepartTime: "18:15",
+    Date_Day: "2015-07-20"
 }]
+
+var ChildAllergiesArr = [{
+    FK_IdChild: 1,
+    FK_IdAllergy: 2,
+}, {
+    FK_IdChild: 2,
+    FK_IdAllergy: 1,
+}, {
+    FK_IdChild: 1,
+    FK_IdAllergy: 1,
+}]
+
+var ChildsInfosArr = [{
+    FK_IdChild: 1,
+    FK_IdRemarque: 1,
+    FK_IdInfosJour: 1,
+    FK_IdAllergy: 1
+}, {
+    FK_IdChild: 2,
+    FK_IdRemarque: 1,
+    FK_IdInfosJour: 2,
+    FK_IdAllergy: 1
+}, {
+     FK_IdChild: 1,
+    FK_IdRemarque: 2,
+    FK_IdInfosJour: 2,
+    FK_IdAllergy: 2
+}]
+
 
 // FILL ALL -------------
 router.get('/db/fill/all', function(req, res, next) {
-     console.log("db", db);
-    models.Childs.bulkCreate(
-        ChildsArr
+    /*     console.log("db", db);*/
+
+    //   models.Childs.bulkCreate(
+    //     ChildsArr
+    // );
+
+    models.InfosDays.bulkCreate(
+        InfosDaysArr
     );
 
-    models.Allergies.bulkCreate(
+  /*  models.Allergies.bulkCreate(
         AllergiesArr
     );
 
@@ -65,11 +119,16 @@ router.get('/db/fill/all', function(req, res, next) {
         RemarksArr
     );
 
-    models.InfosDays.bulkCreate(
-        RemarksArr
+    models.ChildInfos.bulkCreate(
+        ChildsInfosArr
     );
 
-
+    models.ChildAllergies.bulkCreate(
+        ChildAllergiesArr
+    );
+*/
+    console.log('Fill the DB', "DB filled");
+    res.status(200);
     res.render('database', {
         title: 'Database was fill with dummy datas',
     });

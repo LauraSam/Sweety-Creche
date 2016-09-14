@@ -6,8 +6,6 @@ var express = require('express'),
 /*path = require('path'),*/
     Promise = require("bluebird");
 
-
-
 var models = db.sequelize.models;
 
 module.exports = function(app) {
