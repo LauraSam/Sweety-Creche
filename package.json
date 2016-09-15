@@ -20,6 +20,9 @@
    "sequelize-import": "^1.2.1",
     "serve-favicon": "^2.3.0"
   },
+  "engines":{
+    "node":"0.12.x"
+  },
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-nodemon": "^2.0.2",
