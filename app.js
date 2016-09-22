@@ -2,7 +2,7 @@ var express = require('express'),
     config = require('./config/config'),
     path = require('path');
     db = require('./app/models'),
-    bodyParser = require('body-parser');
+    bodyParser = require('body-parser'),
     cors = require('cors');
 var app = express();
 

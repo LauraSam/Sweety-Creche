@@ -32,7 +32,7 @@ router.get('/childs', function(req, res, next) {
         var allChilds, nbrChilds;
     models.Childs.findAndCountAll().then(function(childs) {
        res.status(200);
-       res.json(result);
+       res.json(childs);
       /* allChilds = childs.rows;
        nbrChilds = childs.count;
        res.status(200);*/
