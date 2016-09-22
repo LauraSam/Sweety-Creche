@@ -11,8 +11,17 @@ module.exports = function(app) {
           'extended': 'true'
       }));
       app.use(bodyParser.json());*/
+    app.use(cors());
+
     app.use('/', router);
 };
+
+// CORS ----------------------
+router.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 
 
 var convertToDateFromSimpleString = function(dateValue) { // simple string = yyyymmdd
@@ -57,14 +66,15 @@ var InfosDaysArr = [{
     ArrivalTime: "08:15",
     DepartTime: "18:15",
     Date_Day: "2015-08-15"
-},{
+}, {
     ArrivalTime: "07:35",
     DepartTime: "18:15",
     Date_Day: "2015-07-15"
-}, {ArrivalTime: "08:15",
+}, {
+    ArrivalTime: "08:15",
     DepartTime: "16:15",
     Date_Day: "2015-08-19"
-},{
+}, {
     ArrivalTime: "07:35",
     DepartTime: "18:15",
     Date_Day: "2015-07-20"
@@ -92,7 +102,7 @@ var ChildsInfosArr = [{
     FK_IdInfosJour: 2,
     FK_IdAllergy: 1
 }, {
-     FK_IdChild: 1,
+    FK_IdChild: 1,
     FK_IdRemarque: 2,
     FK_IdInfosJour: 2,
     FK_IdAllergy: 2
@@ -111,7 +121,7 @@ router.get('/db/fill/all', function(req, res, next) {
         InfosDaysArr
     );
 
-  /*  models.Allergies.bulkCreate(
+    /*  models.Allergies.bulkCreate(
         AllergiesArr
     );
 

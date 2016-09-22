@@ -6,12 +6,23 @@ var models = db.sequelize.models;
 
 module.exports = function(app) {
     // app.use('/api', router) ==> tell express to include subpath api before any route
-  /*  app.use(bodyParser.urlencoded({
-        'extended': 'true'
-    }));
-    app.use(bodyParser.json());*/
+    /*  app.use(bodyParser.urlencoded({
+          'extended': 'true'
+      }));
+      app.use(bodyParser.json());*/
+    app.use(cors());
+
     app.use('/', router);
 };
+
+// CORS ----------------------
+router.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
+
 
 /* CREATE the tables ------------- */
 router.get('/db/create', function(req, res, next) {
@@ -33,7 +44,7 @@ router.get('/db/drop', function(req, res, next) {
         "drop schema public cascade; create schema public;"
     ).spread(function(results, metadata) {
         console.log("everything went fine")
-    }).catch(function(e){
+    }).catch(function(e) {
         console.log(e);
     })
 

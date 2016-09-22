@@ -14,23 +14,33 @@ module.exports = function(app) {
         'extended': 'true'
     }));
     app.use(bodyParser.json());*/
+    app.use(cors());
+
     app.use('/', router);
 };
+
+// CORS ----------------------
+router.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 
 //get All childs
 router.get('/childs', function(req, res, next) {
         var allChilds, nbrChilds;
     models.Childs.findAndCountAll().then(function(childs) {
        res.status(200);
-       /*res.json(result);*/
-       allChilds = childs.rows;
+       res.json(result);
+      /* allChilds = childs.rows;
        nbrChilds = childs.count;
-       res.status(200);
-       res.render('childs', {
+       res.status(200);*/
+       /*res.render('childs', {
            title: 'List of all the childs',
            childs: allChilds,
            nbrChilds: nbrChilds,
-       });
+       });*/
 
     }).catch(function(error) {
         console.log("Les erreurs bloquantes de Sequelize", error);
@@ -46,12 +56,13 @@ router.get('/childs/allergies', function(req, res, next) {
 
     models.Childs.findAll().then(function(result) {
        res.status(200);
-        res.render('childs', {
+       res.json(result);
+       /* res.render('childs', {
            title: 'List of all the childs with allergies',
            childs: allChilds,
            nbrChilds: nbrChilds,
            allergies: allergies,
-       });
+       });*/
 
     }).catch(function(error) {
         console.log("Les erreurs bloquantes de Sequelize", error);
