@@ -27,7 +27,7 @@ var config = {
       name: 'server'
     },
     port: process.env.PORT || 3002,
-    db: 'postgres://Laura:adneom2016@localhost/sweetyCreche'
+    db: 'postgres://vvnhsxyelcnqzy:W6CrlFPZATmeyoGV2zgPMK7JI5@ec2-54-243-249-154.compute-1.amazonaws.com:5432/da7otcpqqe50e3'
   }
 };
 
