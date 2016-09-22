@@ -43,7 +43,7 @@ router.get('/allergies', function(req, res, next) {
 });
 
 
-// Get One allergies with id
+// Get One allergie with id
 router.get('/allergy/:id', function(req, res, next) {
     var id = req.params.id;
     models.Allergies.findAll(
