@@ -30,7 +30,7 @@ router.use(function(req, res, next) {
 //get All childs
 router.get('/childs', function(req, res, next) {
         var allChilds, nbrChilds;
-    models.Child.findAndCountAll().then(function(Childrens) {
+    models.Child.findAndCountAll().then(function(childs) {
        res.status(200);
        res.json(childs);
       /* allChilds = childs.rows;
