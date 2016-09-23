@@ -26,7 +26,7 @@ var config = {
     app: {
       name: 'server'
     },
-    port: process.env.PORT || 3002,
+    port: process.env.PORT || 5432,
     db: 'postgres://vvnhsxyelcnqzy:W6CrlFPZATmeyoGV2zgPMK7JI5@ec2-54-243-249-154.compute-1.amazonaws.com:5432/da7otcpqqe50e3'
   }
 };

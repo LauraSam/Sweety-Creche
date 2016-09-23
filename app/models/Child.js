@@ -4,7 +4,7 @@ var models = require('../models');
 
 module.exports = function(sequelize, DataTypes) {
 
-    var Childs = sequelize.define('Childs', {
+    var Child = sequelize.define('Childs', {
         id: {
             type: DataTypes.BIGINT,
             field: 'id',
@@ -18,8 +18,8 @@ module.exports = function(sequelize, DataTypes) {
         classMethods: {
     
         },
-        tableName: 'Childs',
+        tableName: 'Children',
         timestamps: false,
     })
-    return Childs;
+    return Child;
 };

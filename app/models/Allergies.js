@@ -16,10 +16,6 @@ module.exports = function (sequelize, DataTypes) {
   }, {
     classMethods : {
       associate : function(models){
-        // un Allergies à plusieurs remarques :
-        // Allergies.hasMany(models.Remarques);
-      
-          /*Allergies.belongsTo(models.InfosJour, { foreignKey: 'FK_InfosJour', constraints: false, targetKey: 'IdInfosJour' });*/
       }
     },
   tableName: 'Allergies',

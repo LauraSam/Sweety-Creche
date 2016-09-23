@@ -16,7 +16,7 @@ module.exports = function(sequelize, DataTypes) {
             associate: function(models) {
                 // un ChildAllergies à plusieurs remarques :
                 // ChildAllergies.hasMany(models.Remarques);
-                ChildAllergies.belongsTo(models.Childs, { foreignKey: 'FK_IdChild', constraints: false, targetKey: 'id' });
+                ChildAllergies.belongsTo(models.Child, { foreignKey: 'FK_IdChild', constraints: false, targetKey: 'id' });
                 ChildAllergies.belongsTo(models.Allergies, { foreignKey: 'FK_IdAllergy', constraints: false, targetKey: 'id' });
                /* ChildAllergies.belongsTo(models.Allergies, { foreignKey: 'FK_IdAllergy', constraints: false, targetKey: 'id' });*/
             }
