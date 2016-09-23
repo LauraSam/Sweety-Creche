@@ -19,7 +19,7 @@ module.exports = function(sequelize, DataTypes) {
                 ChildInfos.belongsTo(models.Child, { foreignKey: 'FK_IdChild', constraints: false, targetKey: 'id' });
                 ChildInfos.belongsTo(models.Remarks, { foreignKey: 'FK_IdRemarque', constraints: false, targetKey: 'id' });
                 ChildInfos.belongsTo(models.InfosDays, { foreignKey: 'FK_IdInfosJour', constraints: false, targetKey: 'id' });
-                ChildInfos.belongsTo(models.Allergies, { foreignKey: 'FK_IdAllergy', constraints: false, targetKey: 'id' });
+             /*   ChildInfos.belongsTo(models.Allergies, { foreignKey: 'FK_IdAllergy', constraints: false, targetKey: 'id' });*/
             }
         },
         tableName: 'ChildInfos',

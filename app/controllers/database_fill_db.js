@@ -95,17 +95,14 @@ var ChildsInfosArr = [{
     FK_IdChild: 1,
     FK_IdRemarque: 1,
     FK_IdInfosJour: 1,
-    FK_IdAllergy: 1
 }, {
     FK_IdChild: 2,
     FK_IdRemarque: 1,
     FK_IdInfosJour: 2,
-    FK_IdAllergy: 1
 }, {
     FK_IdChild: 1,
     FK_IdRemarque: 2,
     FK_IdInfosJour: 2,
-    FK_IdAllergy: 2
 }]
 
 
@@ -113,15 +110,15 @@ var ChildsInfosArr = [{
 router.get('/db/fill/all', function(req, res, next) {
     /*     console.log("db", db);*/
 
-    //   models.Childs.bulkCreate(
-    //     ChildsArr
-    // );
+      models.Child.bulkCreate(
+        ChildsArr
+    );
 
     models.InfosDays.bulkCreate(
         InfosDaysArr
     );
 
-    /*  models.Allergies.bulkCreate(
+      models.Allergies.bulkCreate(
         AllergiesArr
     );
 
@@ -136,10 +133,10 @@ router.get('/db/fill/all', function(req, res, next) {
     models.ChildAllergies.bulkCreate(
         ChildAllergiesArr
     );
-*/
+
     console.log('Fill the DB', "DB filled");
     res.status(200);
     res.render('database', {
-        title: 'Database was fill with dummy datas',
+        title: 'Database was fill with dummy datas'
     });
 });

@@ -9,7 +9,7 @@ var config = {
       name: 'server'
     },
     port: process.env.PORT || 3000,
-    db: 'postgres://Laura:adneom2016@localhost/sweetyCreche'
+    db: 'postgres://Laura:adneom2016@localhost/SweetyCreche'
   },
 
   test: {
@@ -18,7 +18,7 @@ var config = {
       name: 'server'
     },
     port: process.env.PORT || 3001,
-    db: 'postgres://Laura:adneom2016@localhost/sweetyCreche'
+    db: 'postgres://Laura:adneom2016@localhost/SweetyCreche'
   },
 
   production: {

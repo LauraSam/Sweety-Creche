@@ -30,7 +30,7 @@ router.use(function(req, res, next) {
 //get All childs
 router.get('/childs', function(req, res, next) {
         var allChilds, nbrChilds;
-    models.Childs.findAndCountAll().then(function(childs) {
+    models.Children.findAndCountAll().then(function(Childrens) {
        res.status(200);
        res.json(childs);
       /* allChilds = childs.rows;
@@ -54,7 +54,7 @@ router.get('/childs', function(req, res, next) {
 //get All childs with allergies
 router.get('/childs/allergies', function(req, res, next) {
 
-    models.Childs.findAll().then(function(result) {
+    models.Child.findAll().then(function(result) {
        res.status(200);
        res.json(result);
        /* res.render('childs', {
