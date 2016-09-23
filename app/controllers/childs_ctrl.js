@@ -30,7 +30,7 @@ router.use(function(req, res, next) {
 //get All childs
 router.get('/childs', function(req, res, next) {
         var allChilds, nbrChilds;
-    models.Children.findAndCountAll().then(function(Childrens) {
+    models.Child.findAndCountAll().then(function(Childrens) {
        res.status(200);
        res.json(childs);
       /* allChilds = childs.rows;
@@ -54,15 +54,10 @@ router.get('/childs', function(req, res, next) {
 //get All childs with allergies
 router.get('/childs/allergies', function(req, res, next) {
 
-    models.Child.findAll().then(function(result) {
+    models.ChildAllergies.findAll().then(function(result) {
        res.status(200);
        res.json(result);
-       /* res.render('childs', {
-           title: 'List of all the childs with allergies',
-           childs: allChilds,
-           nbrChilds: nbrChilds,
-           allergies: allergies,
-       });*/
+   
 
     }).catch(function(error) {
         console.log("Les erreurs bloquantes de Sequelize", error);
